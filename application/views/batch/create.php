@@ -131,7 +131,7 @@ else
                         $query = $this->db->query($sql);
                         $counseller_details = $query->result_array();
                         foreach ($counseller_details as $v) {
-                          ?>
+                        ?>
                           <option value="<?php echo $v['id']; ?>">
                             <?php echo $v['firstname']; ?>
                           </option>
@@ -167,7 +167,7 @@ else
 </div>
 <!-- /.content-wrapper -->
 <script type="text/javascript">
-  $(document).ready(function () {
+  $(document).ready(function() {
     loadCourses($("#projectCombo"), "#coursesAppender");
     $(".select_group").select2();
     $("#description").wysihtml5();
@@ -190,11 +190,13 @@ else
       elErrorContainer: '#kv-avatar-errors-1',
       msgErrorClass: 'alert alert-block alert-danger',
       // defaultPreviewContent: '<img src="/uploads/default_avatar_male.jpg" alt="Your Avatar">',
-      layoutTemplates: { main2: '{preview} ' + btnCust + ' {remove} {browse}' },
+      layoutTemplates: {
+        main2: '{preview} ' + btnCust + ' {remove} {browse}'
+      },
       allowedFileExtensions: ["jpg", "png", "gif"]
     });
   });
-  
+
   /*
    * Created By: Akash K. Fulari
    * On Date: 08-05-2024
@@ -205,7 +207,7 @@ else
       type: "get",
       data: {},
       dataType: "json",
-      success: function (res) {
+      success: function(res) {
         if (res.status) {
           $(ele).html(res.message);
         } else {
@@ -214,7 +216,6 @@ else
       }
     });
   }
-
 </script>
 
 <script>
@@ -228,7 +229,7 @@ else
     let a = document.createElement("a");
     a.setAttribute("class", "btn btn-sm btn-danger");
     a.innerHTML = "Delete";
-    a.addEventListener("click", function () {
+    a.addEventListener("click", function() {
       subEle.remove();
       fclEle.remove();
       div.remove();
@@ -239,5 +240,4 @@ else
     parent.appendChild(fclEle);
     parent.appendChild(div);
   }
-
 </script>

@@ -20,21 +20,21 @@
 			</li>
 
 			<!--  <?php if (in_array('updateOrder', $user_permission)): ?>-->
-				<!-- <li class="treeview" id="mainOrdersNav">-->
-				<!--     <a href="#">-->
-				<!--       <i class="glyphicon glyphicon-stats"></i>-->
-				<!--       <span>Enquiry</span>-->
-				<!--       <span class="pull-right-container">-->
-				<!--         <i class="fa fa-angle-left pull-right"></i>-->
-				<!--       </span>-->
-				<!--     </a>-->
-				<!--     <ul class="treeview-menu">-->
-				<!--     <li id="lead"><a href="<?php echo base_url('counseller/create') ?>"><i class="fa fa-circle-o"></i> Add Enquiry</a></li>-->
-				<!--     <li id="lead"><a href="<?php echo base_url('counseller') ?>"><i class="fa fa-circle-o"></i> Todays Enquiry</a></li>-->
-				<!--     <li id="lead"><a href="<?php echo base_url('counseller/all_lead') ?>"><i class="fa fa-circle-o"></i> ALL Enquiry</a></li>     -->
-				<!--  </ul>-->
-				<!--</li> -->
-				<!--<?php endif; ?>-->
+			<!-- <li class="treeview" id="mainOrdersNav">-->
+			<!--     <a href="#">-->
+			<!--       <i class="glyphicon glyphicon-stats"></i>-->
+			<!--       <span>Enquiry</span>-->
+			<!--       <span class="pull-right-container">-->
+			<!--         <i class="fa fa-angle-left pull-right"></i>-->
+			<!--       </span>-->
+			<!--     </a>-->
+			<!--     <ul class="treeview-menu">-->
+			<!--     <li id="lead"><a href="<?php echo base_url('counseller/create') ?>"><i class="fa fa-circle-o"></i> Add Enquiry</a></li>-->
+			<!--     <li id="lead"><a href="<?php echo base_url('counseller') ?>"><i class="fa fa-circle-o"></i> Todays Enquiry</a></li>-->
+			<!--     <li id="lead"><a href="<?php echo base_url('counseller/all_lead') ?>"><i class="fa fa-circle-o"></i> ALL Enquiry</a></li>     -->
+			<!--  </ul>-->
+			<!--</li> -->
+			<!--<?php endif; ?>-->
 
 			<?php if (in_array('createStore', $user_permission) || in_array('updateStore', $user_permission) || in_array('viewStore', $user_permission) || in_array('deleteStore', $user_permission)): ?>
 				<li class="treeview" id="storeNav">
@@ -125,6 +125,8 @@
 					</ul>
 				</li>
 			<?php endif; ?>
+
+
 			<?php if (in_array('updateScreeningTest', $user_permission) || in_array('viewScreeningTest', $user_permission) || in_array('deleteScreeningTest', $user_permission)): ?>
 				<li class="treeview" id="orderNav">
 					<a href="#">
@@ -155,23 +157,24 @@
 					</a>
 					<ul class="treeview-menu">
 						<?php if (in_array('createOrder', $user_permission)): ?>
-							<!-- <li id="addOrderNav"><a href="<?php //echo base_url('enrollment/create') ?>"><i class="fa fa-circle-o"></i> Add
+							<!-- <li id="addOrderNav"><a href="<?php //echo base_url('enrollment/create') 
+																?>"><i class="fa fa-circle-o"></i> Add
 				  Enrollment</a></li>
 			<?php endif; ?> -->
-						<?php if (in_array('updateOrder', $user_permission) || in_array('viewOrder', $user_permission) || in_array('deleteOrder', $user_permission)): ?>
-							<li id="manageOrdersNav"><a href="<?php echo base_url('enrollment') ?>"><i
-										class="fa fa-circle-o"></i> Manage
-									Enrollment</a></li>
-							<li id="manageOrdersNav"><a style="display:flex:align-items:center"
-									href="<?php echo base_url('enrollment/enrollment_requests') ?>"><i
-										class="fa fa-circle-o"></i> Manage
-									Enrollment Requests
-									<span class="pull-right-container d-flex align-items-center">
-										<span class="label label-success enrollRequestCounter" hidden>0</span>
-									</span>
-								</a>
-							</li>
-						<?php endif; ?>
+							<?php if (in_array('updateOrder', $user_permission) || in_array('viewOrder', $user_permission) || in_array('deleteOrder', $user_permission)): ?>
+								<li id="manageOrdersNav"><a href="<?php echo base_url('enrollment') ?>"><i
+											class="fa fa-circle-o"></i> Manage
+										Enrollment</a></li>
+								<li id="manageOrdersNav"><a style="display:flex;align-items:center"
+										href="<?php echo base_url('enrollment/enrollment_requests') ?>"><i
+											class="fa fa-circle-o"></i> Manage
+										Enrollment Requests
+										<span class="pull-right-container d-flex align-items-center">
+											<span class="label label-success enrollRequestCounter" hidden>0</span>
+										</span>
+									</a>
+								</li>
+							<?php endif; ?>
 					</ul>
 				</li>
 			<?php endif; ?>
@@ -312,7 +315,7 @@
 
 									<?php if ($value['remain'] == 0.00) {
 
-										?>
+									?>
 										<?php if (in_array('createPlacement', $user_permission)) { ?>
 
 											<?php
@@ -328,7 +331,7 @@
 											foreach ($data as $value) {
 												$id = $value['id'];
 
-												?>
+											?>
 
 
 
@@ -339,18 +342,17 @@
 															class="fa fa-circle-o"></i> Upload Placement</a></li>
 
 
-											<?php }
+								<?php }
 										}
 									}
 								}
-
 							} else { ?>
 
 
 								<?php if (in_array('createPlacement', $user_permission)) { ?>
 									<li id="addPlacement"><a href="<?php echo base_url('placement/create') ?>"><i
 												class="fa fa-circle-o"></i> Apply Placement</a></li>
-								<?php }
+							<?php }
 							} ?>
 
 							<?php if (in_array('updatePlacement', $user_permission) || in_array('viewOrder', $user_permission) || in_array('deleteOrder', $user_permission)): ?>
@@ -367,13 +369,17 @@
 								<!--		</span>-->
 								<!--	</a>-->
 								<!--	<ul class="treeview-menu">-->
-								<!--		<li id="managePlacement"><a href="<?php //echo base_url('placement/placement_wagholi') ?>"><i-->
+								<!--		<li id="managePlacement"><a href="<?php //echo base_url('placement/placement_wagholi') 
+																				?>"><i-->
 								<!--					class="fa fa-circle-o"></i>KHARADI</a></li>-->
-								<!--		<?php //if ($_SESSION['branch_id'] != 2) { ?>-->
+								<!--		<?php //if ($_SESSION['branch_id'] != 2) { 
+											?>-->
 								<!--			<li id="managePlacement"><a-->
-								<!--					href="<?php //echo base_url('placement/placement_shivajinagar') ?>"><i-->
+								<!--					href="<?php //echo base_url('placement/placement_shivajinagar') 
+																?>"><i-->
 								<!--						class="fa fa-circle-o"></i>Shivajinagar</a></li>-->
-								<!--		<?php //} ?>-->
+								<!--		<?php //} 
+											?>-->
 								<!--	</ul>-->
 								<!--</li>-->
 							<?php endif; ?>
@@ -529,6 +535,69 @@
 					<li id="companyNav"><a href="<?php echo base_url('company/') ?>"><i class="fa fa-files-o"></i>
 							<span>Organization</span></a></li>
 				<?php endif; ?>
+
+
+				<!-- kdk  Assessment Tab  -->
+
+
+				<!-- <li class="treeview" id="mainProductNav">
+					<a href="#">
+						<i class="fa fa-user-o"></i>
+						<span>Assessment</span>
+						<span class="pull-right-container">
+							<i class="fa fa-angle-left pull-right"></i>
+						</span>
+					</a>
+					<ul class="treeview-menu">
+						<?php if (in_array('addSubject', $user_permission)): ?>
+							<li id="addProductNav"><a href="<?php echo base_url('assessments/index') ?>"><i
+										class="fa fa-circle-o"></i> Add Assessment</a></li>
+						<?php endif; ?>
+						<?php if (in_array('updateProduct', $user_permission) || in_array('viewSubject', $user_permission) || in_array('deleteSubject', $user_permission)): ?>
+							<li id="manageProductNav"><a href="<?php echo base_url('assessments/index') ?>"><i
+										class="fa fa-circle-o"></i> Add Assessment</a>
+							</li>
+
+							<li id="manageProductNav"><a href="<?php echo base_url('assessments/show_assessment') ?>"><i
+										class="fa fa-circle-o"></i> Manage Assessment</a>
+							</li>
+
+						<?php endif; ?>
+					</ul>
+				</li> -->
+
+
+
+				<!-- ork  -->
+
+				<?php if (in_array('createOrder', $user_permission) || in_array('updateOrder', $user_permission) || in_array('viewOrder', $user_permission) || in_array('deleteOrder', $user_permission)): ?>
+					<li class="treeview" id="orderNav">
+						<a href="#">
+							<i class="fa fa-user-o"></i>
+							<span>Assessment</span>
+							<span class="pull-right-container">
+								<i class="fa fa-angle-left pull-right"></i>
+							</span>
+						</a>
+						<ul class="treeview-menu">
+							<?php if (in_array('createOrder', $user_permission)): ?>
+								<li id="addProductNav"><a href="<?php echo base_url('assessments/index') ?>"><i
+											class="fa fa-circle-o"></i>
+										Create Assessments</a></li>
+							<?php endif; ?>
+							<?php if (in_array('updateOrder', $user_permission) || in_array('viewOrder', $user_permission) || in_array('deleteOrder', $user_permission)): ?>
+								<li id="manageProductNav"><a href="<?php echo base_url('Assessments/show') ?>"><i
+											class="fa fa-circle-o"></i>
+										Manage
+										Assessment</a></li>
+							<?php endif; ?>
+						</ul>
+					</li>
+				<?php endif; ?>
+
+
+
+				<!-- end  -->
 
 
 				<!-- <li class="header">Settings</li> -->

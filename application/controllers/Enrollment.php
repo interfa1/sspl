@@ -114,7 +114,7 @@ class Enrollment extends Admin_Controller
 		}
 		echo json_encode($result);
 	}
-	
+
 	public function allocate_batch()
 	{
 		$enid = $this->input->post('enid');
@@ -194,7 +194,7 @@ class Enrollment extends Admin_Controller
 					'gender' => $this->input->post('gender'),
 					'address' => $this->input->post('address'),
 					'contact' => $this->input->post('contact'),
-					'email' => $this->input->post('email'),//instead opf email
+					'email' => $this->input->post('email'), //instead opf email
 					'college' => $this->input->post('college_name'),
 					'education' => $this->input->post('education'),
 					'city' => $this->input->post('city'),
@@ -261,7 +261,6 @@ class Enrollment extends Admin_Controller
 					$this->session->set_flashdata('errors', 'Error occurred!!');
 					redirect('enrollment/create/', 'refresh');
 				}
-
 			} else {
 
 				$stData = $this->model_screeningtest->getScreeningTestDataById($screenTestId);
@@ -502,7 +501,7 @@ class Enrollment extends Admin_Controller
 
 		echo json_encode($response);
 	}
-	
+
 	public function print_form($id)
 	{
 
@@ -554,7 +553,7 @@ class Enrollment extends Admin_Controller
 		$this->data['page_title'] = 'Manage Enrollment Requests';
 		$this->render_template('enrollment/requests', $this->data);
 	}
-	
+
 	/**
 	 * Code updated By: Akash K. Fulari
 	 * On Date: 10-05-2024
@@ -594,7 +593,7 @@ class Enrollment extends Admin_Controller
 					'12th_marksheet' => $isExistsData['12th_marksheet'],
 					'income_certificate' => $isExistsData['income_certificate'],
 					'adhar_card' => $isExistsData['adhar_card'],
-					'photograph' => (($isExistsData['photograph']==null)?"":$isExistsData['photograph']),
+					'photograph' => (($isExistsData['photograph'] == null) ? "" : $isExistsData['photograph']),
 					'graduate_certificate' => $isExistsData['graduate_certificate']
 				);
 
@@ -630,18 +629,16 @@ class Enrollment extends Admin_Controller
 		$result = array('data' => array());
 
 		$data = $this->model_enrollment->getEnrollement();
-		
-		foreach ($data as $value) 
-		{
+
+		foreach ($data as $value) {
 			$projectData = $this->model_stores->getStoresData($value['project_id']);
 			$courseData = $this->model_brands->getBrandData($value['course_id']);
 
-			 //$buttons .= '<a href="' . base_url('enrollment/print_form/' . $value['id']) . '" class="btn btn-default"><i class="fa fa-eye"></i></a>';
+			//$buttons .= '<a href="' . base_url('enrollment/print_form/' . $value['id']) . '" class="btn btn-default"><i class="fa fa-eye"></i></a>';
 			// $buttons .= ' <a href="' . base_url('enrollment/update/' . $value['id']) . '" class="btn btn-default"><i class="fa fa-pencil"></i></a>';
 			// $buttons .= ' <button type="button" class="btn btn-default" onclick="removeFunc(' . $value['id'] . ')" data-toggle="modal" data-target="#removeModal"><i class="fa fa-trash"></i></button>';
 			if ($projectData && $courseData) {
-				if ($value['isAllocated'] == 1) 
-				{
+				if ($value['isAllocated'] == 1) {
 					$result['data'][] = array(
 						$projectData['name'],
 						$courseData['name'],
@@ -663,7 +660,7 @@ class Enrollment extends Admin_Controller
 
 		echo json_encode($result);
 	}
-	
+
 	public function fetchTrainerWiseStudent()
 	{
 		$result = array('data' => array());
@@ -710,9 +707,4 @@ class Enrollment extends Admin_Controller
 		// Return the result
 		echo json_encode($result);
 	}
-
-
 }
-
-
-?>

@@ -32,7 +32,6 @@ class Model_enrollment extends CI_Model
 		} else {
 			return false;
 		}
-
 	}
 
 	public function getOrdersData($id = null)
@@ -62,7 +61,6 @@ class Model_enrollment extends CI_Model
 		$insert = $this->db->insert('allocated_batch', $data);
 
 		return $insert;
-
 	}
 
 	public function fetchEnrollmentData()
@@ -88,8 +86,6 @@ class Model_enrollment extends CI_Model
 
 			$this->db->where('id', $id);
 			$delete = $this->db->delete('enrollment');
-
-
 		}
 		return ($delete == true) ? true : false;
 	}
@@ -142,12 +138,11 @@ class Model_enrollment extends CI_Model
 		return $query->result_array();
 	}
 
-	public function getEnrollmentById($enid) {
-        // Assuming student data is stored in 'enrollments' table
-        $this->db->where('id', $enid);
-        $query = $this->db->get('enrollment');
-        return $query->row_array();
-    }
+	public function getEnrollmentById($enid)
+	{
+		// Assuming student data is stored in 'enrollments' table
+		$this->db->where('id', $enid);
+		$query = $this->db->get('enrollment');
+		return $query->row_array();
+	}
 }
-
-?>

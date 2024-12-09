@@ -60,28 +60,28 @@ class Model_subjectnew extends CI_Model
 	 **/
 	public function getSubjectByFacultyId($faculty_id)
 	{
-		$sql = "SELECT * FROM subjectnew WHERE faculty_id = ? group by bid";
+		$sql = "SELECT * FROM subjectnew WHERE faculty_id = ? group by id";
 		$query = $this->db->query($sql, array($faculty_id));
 		return $query->result_array();
 	}
 	public function getAllocatedBatchesByFacultyId($faculty_id)
 	{
-		$sql = "SELECT * FROM subjectnew WHERE faculty_id = ? group by bid";
+		$sql = "SELECT * FROM subjectnew WHERE faculty_id = ? group by id";
 		$query = $this->db->query($sql, array($faculty_id));
 		return $query->result_array();
 	}
-	
+
 	public function getInProgressAllocatedBatchesByFacultyId($faculty_id)
 	{
-		$sql = "SELECT * FROM subjectnew sub INNER JOIN batch bt ON bt.id = sub.bid WHERE sub.faculty_id = ? and bt.progress <> ? group by sub.bid";
-		$query = $this->db->query($sql, array($faculty_id, 100));
+		$sql = "SELECT * FROM subjectnew sub INNER JOIN batch bt ON bt.id = sub.bid WHERE sub.faculty_id = ? and bt.progress <> ? group by sub.id";
+		$query = $this->db->query($sql, array($faculty_id, 10));
 		return $query->result_array();
 	}
-	
+
 	public function getPastAllocatedBatchesByFacultyId($faculty_id)
 	{
-		$sql = "SELECT * FROM subjectnew sub INNER JOIN batch bt ON bt.id = sub.bid WHERE sub.faculty_id = ? and bt.progress = ? group by sub.bid";
-		$query = $this->db->query($sql, array($faculty_id, 100));
+		$sql = "SELECT * FROM subjectnew sub INNER JOIN batch bt ON bt.id = sub.bid WHERE sub.faculty_id = ? and bt.progress = ? group by sub.id";
+		$query = $this->db->query($sql, array($faculty_id, 10));
 		return $query->result_array();
 	}
 
@@ -94,9 +94,8 @@ class Model_subjectnew extends CI_Model
 
 	public function getFaculty($faculty_id)
 	{
-    $sql = "SELECT * FROM subjectnew WHERE faculty_id = ?";
-    $query = $this->db->query($sql, array($faculty_id));
-    return $query->result_array();
+		$sql = "SELECT * FROM subjectnew WHERE faculty_id = ?";
+		$query = $this->db->query($sql, array($faculty_id));
+		return $query->result_array();
 	}
-
 }

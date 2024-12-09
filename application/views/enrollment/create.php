@@ -106,7 +106,7 @@ $attr_bute = $this->db->get();
                         $query = $this->db->query($sql, array(1));
                         $branch = $query->result_array();
                         foreach ($branch as $v) {
-                          ?>
+                        ?>
                           <option value="<?php echo $v['id']; ?>" <?php echo (($edata['project_id'] == $v['id']) ? "selected" : ""); ?>>
                             <?php echo $v['name']; ?>
                           </option>
@@ -431,11 +431,11 @@ $attr_bute = $this->db->get();
 <script type="text/javascript">
   var base_url = "<?php echo base_url(); ?>";
 
-  $(document).ready(function () {
+  $(document).ready(function() {
     loadSelectCourses("<?php echo $edata['project_id']; ?>", "#coursesAppender", "<?php echo $edata['course_id']; ?>");
-    $(".select_group").select2();  // For select multiple array
+    $(".select_group").select2(); // For select multiple array
     $('#chq_no').hide();
-    $('#pay_mode').change(function () {
+    $('#pay_mode').change(function() {
       if ($('#pay_mode').val() == 'cheque') {
         $('#chq_no').show();
 
@@ -453,13 +453,14 @@ $attr_bute = $this->db->get();
   function loadCourses(me, ele, selectValue) {
     loadSelectCourses(me.value, ele, selectValue);
   }
+
   function loadSelectCourses(val, ele, selectValue) {
     $.ajax({
       url: "<?php echo base_url('enquiry/loadCoursesByProjectId/') ?>" + val,
       type: "get",
       data: {},
       dataType: "json",
-      success: function (res) {
+      success: function(res) {
         if (res.status) {
           $(ele).html(res.message);
           if (ele.indexOf(selectValue) > -1)
@@ -545,6 +546,4 @@ $attr_bute = $this->db->get();
     $("#product_info_table tbody tr#row_" + tr_id).remove();
     subAmount();
   }
-
-
 </script>

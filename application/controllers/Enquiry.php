@@ -85,7 +85,6 @@ class Enquiry extends Admin_Controller
                 $this->session->set_flashdata('errors', 'Error occurred!!');
                 redirect('enquiry/create', 'refresh');
             }
-
         } else {
             $this->render_template('enquiry/create', $this->data);
         }
@@ -121,6 +120,7 @@ class Enquiry extends Admin_Controller
                             $cnsid = $this->input->post('counseller_id');
                             $status = $this->input->post('status');
                             $date = $this->input->post('date');
+
                             $stdName = $getData[0];
                             $stdMobile = $getData[1];
                             $stdEmail = $getData[2];
@@ -253,7 +253,6 @@ class Enquiry extends Admin_Controller
                 $this->session->set_flashdata('errors', 'Error occurred!!');
                 redirect('enquiry/update/' . $enquiryId, 'refresh');
             }
-
         } else {
             $enquiry = $this->model_enquiry->getEnquiryDataById($enquiryId);
             if ($enquiry != null) {
@@ -305,7 +304,7 @@ class Enquiry extends Admin_Controller
 
             $projectData = $this->model_stores->getStoresDataSingle($value['project_id']);
             $courseData = $this->model_brands->getBrandDataSingle($value['course_id']);
-            if($projectData !=null && $courseData != null){
+            if ($projectData != null && $courseData != null) {
                 $result['data'][$i] = array(
                     $value['id'],
                     $projectData['name'],
@@ -361,7 +360,7 @@ class Enquiry extends Admin_Controller
 
                 $projectData = $this->model_stores->getStoresDataSingle($value['project_id']);
                 $courseData = $this->model_brands->getBrandDataSingle($value['course_id']);
-                if($projectData !=null && $courseData != null){
+                if ($projectData != null && $courseData != null) {
 
                     $result['data'][$i] = array(
                         $value['id'],

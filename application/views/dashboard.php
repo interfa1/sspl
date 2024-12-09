@@ -1,5 +1,4 @@
 <style>
-  
   .isa_info,
   .isa_success,
   .isa_warning,
@@ -206,7 +205,7 @@ if ($_SESSION['branch_id'] == 2) {
           </div>
 
         </div>
-      <?php }
+    <?php }
     } ?>
 
 
@@ -265,10 +264,10 @@ if ($_SESSION['branch_id'] == 2) {
             <!-- small box -->
             <div class="small-box bg-aqua">
               <div class="inner">
-                <?php 
-                  $query=$this->db->query("SELECT COUNT(*) as total_batches FROM batch");
-                  $result = $query->row();                
-              
+                <?php
+                $query = $this->db->query("SELECT COUNT(*) as total_batches FROM batch");
+                $result = $query->row();
+
                 $total_batches = $result->total_batches;
                 ?>
                 <h3><?php echo $total_batches ?></h3>
@@ -287,10 +286,10 @@ if ($_SESSION['branch_id'] == 2) {
             <!-- small box -->
             <div class="small-box bg-green">
               <div class="inner">
-              <?php 
-                  $query=$this->db->query("SELECT COUNT(*) as total_enrollments FROM enrollment");
-                  $result = $query->row();                
-              
+                <?php
+                $query = $this->db->query("SELECT COUNT(*) as total_enrollments FROM enrollment");
+                $result = $query->row();
+
                 $total_enrollments = $result->total_enrollments;
                 ?>
 
@@ -347,7 +346,8 @@ if ($_SESSION['branch_id'] == 2) {
             <div class="small-box bg-fuchsia">
               <div class="inner">
                 <h3>
-                  <?php //echo sizeof($this->db->get_where('orders', ['course_completed !=' => 'NULL', 'fdate' => `DATE(NOW())`])->result()); ?>
+                  <?php //echo sizeof($this->db->get_where('orders', ['course_completed !=' => 'NULL', 'fdate' => `DATE(NOW())`])->result()); 
+                  ?>
                 </h3>
                 <p>Course Completed List</p>
               </div>
@@ -365,7 +365,8 @@ if ($_SESSION['branch_id'] == 2) {
               <div class="inner">
                 <h3>
                   <h3>
-                    <?php //echo sizeof($this->db->get_where('orders', ['course_completed' => NULL, 'fdate' => `DATE(NOW())`])->result()); ?>
+                    <?php //echo sizeof($this->db->get_where('orders', ['course_completed' => NULL, 'fdate' => `DATE(NOW())`])->result()); 
+                    ?>
                   </h3>
                 </h3>
                 <p>Course Incompleted List</p>
@@ -397,24 +398,25 @@ if ($_SESSION['branch_id'] == 2) {
           </div>
         </div>
 
-        <?php //if ($_SESSION['branch_id'] == 1 || $_SESSION['branch_id'] == 0) { ?>
+        <?php //if ($_SESSION['branch_id'] == 1 || $_SESSION['branch_id'] == 0) { 
+        ?>
 
-          <div class="col-lg-2 col-xs-6">
-            <!-- small box -->
-            <div class="small-box bg-orange">
-              <div class="inner">
-                <h3><?php echo sizeof($this->db->get_where('enquiry')->result()); ?></h3>
-                <p>Total Enquiry</p>
-              </div>
-              <div class="icon">
-                <i class="ion  ion-ios-eye"></i>
-              </div>
-              <a data-toggle="modal" data-target="#todayEnquiryListModal" class="small-box-footer">More info <i
-                  class="fa fa-arrow-circle-right"></i></a>
+        <div class="col-lg-2 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-orange">
+            <div class="inner">
+              <h3><?php echo sizeof($this->db->get_where('enquiry')->result()); ?></h3>
+              <p>Total Enquiry</p>
             </div>
+            <div class="icon">
+              <i class="ion  ion-ios-eye"></i>
+            </div>
+            <a data-toggle="modal" data-target="#todayEnquiryListModal" class="small-box-footer">More info <i
+                class="fa fa-arrow-circle-right"></i></a>
           </div>
+        </div>
 
-          <!-- <div class="col-lg-2 col-xs-6">
+        <!-- <div class="col-lg-2 col-xs-6">
            
             <div class="small-box bg-blue">
               <div class="inner">
@@ -464,13 +466,15 @@ if ($_SESSION['branch_id'] == 2) {
             </div>
           </div> -->
 
-        <?php //} ?>
+        <?php //} 
+        ?>
 
         <!-- <div class="col-lg-2 col-xs-6">
          
           <div class="small-box bg-fuchsia">
             <div class="inner">
-              <h3><?php //echo ($count_mech + $count_mech + $count_sap + $count_electrical + $count_dgmkt + $count_civil) ?>
+              <h3><?php //echo ($count_mech + $count_mech + $count_sap + $count_electrical + $count_dgmkt + $count_civil) 
+                  ?>
               </h3>
 
               <p>Ongoing Batches</p>
@@ -507,7 +511,7 @@ if ($_SESSION['branch_id'] == 2) {
             </div>
           </div>
 
-          <?php
+        <?php
         endif;
       } else {
         ?>
@@ -542,7 +546,7 @@ if ($_SESSION['branch_id'] == 2) {
                 <i class="ion ion-stats-bars"></i>
               </div>
               <a href="<?php $name = "SAP";
-              echo site_url('load/') ?>" class="small-box-footer">More info <i
+                        echo site_url('load/') ?>" class="small-box-footer">More info <i
                   class="fa fa-arrow-circle-right"></i></a>
             </div>
 
@@ -684,7 +688,7 @@ if ($_SESSION['branch_id'] == 2) {
                   class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
-        <?php endif;
+      <?php endif;
       } ?>
 
       <!-- ./col -->
@@ -725,7 +729,7 @@ if ($_SESSION['branch_id'] == 2) {
 
         h6 {
           font-size: 16px !important;
-          margin:3px 0;
+          margin: 3px 0;
           color: black;
         }
 
@@ -842,7 +846,7 @@ if ($_SESSION['branch_id'] == 2) {
                   foreach ($ips as $ip) {
                     if ($i == 4)
                       $i = 0;
-                    ?>
+                ?>
                     <div class="col-xl-3 col-md-3 card">
                       <a class="box" href="<?php echo base_url("batch/viewMyBatch/" . $ip['id']); ?>">
                         <h6><?php echo $ip['batch_name']; ?></h6>
@@ -854,7 +858,7 @@ if ($_SESSION['branch_id'] == 2) {
                         </div>
                       </a>
                     </div>
-                    <?php
+                  <?php
                     $i++;
                   }
                 } else {
@@ -864,7 +868,7 @@ if ($_SESSION['branch_id'] == 2) {
                       <h6>No Record found!</h6>
                     </a>
                   </div>
-                  <?php
+                <?php
                 }
                 ?>
               </div>
@@ -881,7 +885,7 @@ if ($_SESSION['branch_id'] == 2) {
                   foreach ($pasts as $past) {
                     if ($i == 4)
                       $i = 0;
-                    ?>
+                ?>
                     <div class="col-xl-3 col-md-3 card">
                       <a class="box" href="<?php echo base_url("batch/viewMyBatch/" . $past['id']); ?>">
                         <h6><?php echo $past['batch_name']; ?></h6>
@@ -893,7 +897,7 @@ if ($_SESSION['branch_id'] == 2) {
                         </div>
                       </a>
                     </div>
-                    <?php
+                  <?php
                     $i++;
                   }
                 } else {
@@ -903,7 +907,7 @@ if ($_SESSION['branch_id'] == 2) {
                       <h6>No Record found!</h6>
                     </a>
                   </div>
-                  <?php
+                <?php
                 }
                 ?>
               </div>
@@ -921,7 +925,7 @@ if ($_SESSION['branch_id'] == 2) {
 <!-- /.content-wrapper -->
 
 <script type="text/javascript">
-  $(document).ready(function () {
+  $(document).ready(function() {
     $("#dashboardMainMenu").addClass('active');
-  }); 
+  });
 </script>
